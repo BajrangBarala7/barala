@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { motion, useAnimation } from 'framer-motion';
 import { 
   Mail, 
   Phone, 
@@ -191,56 +192,261 @@ export default function Portfolio() {
       </nav>
 
       {/* Hero Section */}
-      <section id="home" className="pt-16 min-h-screen flex items-center bg-gradient-to-br from-blue-50 via-white to-purple-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <section id="home" className="pt-16 min-h-screen flex items-center bg-gradient-to-br from-slate-50 via-white to-blue-50 relative overflow-hidden">
+        {/* Background animated elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          <motion.div
+            className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-blue-400/20 to-purple-500/20 rounded-full blur-3xl"
+            animate={{
+              scale: [1, 1.2, 1],
+              rotate: [0, 180, 360],
+            }}
+            transition={{
+              duration: 20,
+              repeat: Infinity,
+              ease: "linear"
+            }}
+          />
+          <motion.div
+            className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-br from-purple-400/20 to-blue-500/20 rounded-full blur-3xl"
+            animate={{
+              scale: [1.2, 1, 1.2],
+              rotate: [360, 180, 0],
+            }}
+            transition={{
+              duration: 25,
+              repeat: Infinity,
+              ease: "linear"
+            }}
+          />
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-8">
-              <div className="space-y-4">
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
-                  Hi, I'm{' '}
-                  <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                    Bajrang Barala
-                  </span>
-                </h1>
-                <p className="text-xl sm:text-2xl text-gray-600 font-medium">
+            <motion.div 
+              className="space-y-8"
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+            >
+              <div className="space-y-6">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
+                >
+                  <motion.h1 
+                    className="text-5xl sm:text-6xl lg:text-7xl font-bold leading-tight"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.3 }}
+                  >
+                    <span className="text-gray-600 block">Hi, I'm</span>
+                    <motion.span 
+                      className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent block"
+                      animate={{
+                        backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
+                      }}
+                      transition={{
+                        duration: 5,
+                        repeat: Infinity,
+                        ease: "linear"
+                      }}
+                      style={{
+                        backgroundSize: '200% 200%'
+                      }}
+                    >
+                      Bajrang Barala
+                    </motion.span>
+                  </motion.h1>
+                </motion.div>
+                
+                <motion.p 
+                  className="text-2xl sm:text-3xl text-gray-600 font-medium"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.5 }}
+                >
                   Full Stack Developer
-                </p>
-                <p className="text-lg text-gray-600 max-w-2xl leading-relaxed">
+                </motion.p>
+                
+                <motion.p 
+                  className="text-lg text-gray-600 max-w-2xl leading-relaxed"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.7 }}
+                >
                   Passionate about creating scalable web applications and innovative digital solutions. 
                   With expertise in modern technologies, I transform ideas into exceptional user experiences.
-                </p>
+                </motion.p>
               </div>
               
-              <div className="flex flex-wrap gap-4">
-                <button className="bg-blue-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-blue-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
-                  Get In Touch
-                </button>
-                <button className="border-2 border-gray-300 text-gray-700 px-8 py-3 rounded-lg font-medium hover:border-blue-600 hover:text-blue-600 transition-all duration-300 flex items-center gap-2">
-                  <Download className="w-4 h-4" />
+              <motion.div 
+                className="flex flex-wrap gap-4"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.9 }}
+              >
+                <motion.button 
+                  className="bg-blue-600 text-white px-8 py-4 rounded-lg font-medium shadow-lg relative overflow-hidden group"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                >
+                  <span className="relative z-10">Get In Touch</span>
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-r from-blue-700 to-purple-600"
+                    initial={{ x: '-100%' }}
+                    whileHover={{ x: 0 }}
+                    transition={{ duration: 0.3 }}
+                  />
+                </motion.button>
+                
+                <motion.button 
+                  className="border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-lg font-medium hover:border-blue-600 hover:text-blue-600 transition-all duration-300 flex items-center gap-2"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                >
+                  <motion.div
+                    animate={{ rotate: [0, 10, -10, 0] }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                  >
+                    <Download className="w-4 h-4" />
+                  </motion.div>
                   Download CV
-                </button>
-              </div>
+                </motion.button>
+              </motion.div>
 
-              <div className="flex gap-6">
-                <a href="mailto:baralaoffice1@gmail.com" className="text-gray-600 hover:text-blue-600 transition-colors duration-300 transform hover:scale-110">
-                  <Mail className="w-6 h-6" />
-                </a>
-                <a href="https://www.linkedin.com/in/bajrang-barala-51948925a" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-blue-600 transition-colors duration-300 transform hover:scale-110">
-                  <Linkedin className="w-6 h-6" />
-                </a>
-                <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-blue-600 transition-colors duration-300 transform hover:scale-110">
-                  <Github className="w-6 h-6" />
-                </a>
-              </div>
-            </div>
+              <motion.div 
+                className="flex gap-6"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 1.1 }}
+              >
+                {[
+                  { icon: Mail, href: "mailto:baralaoffice1@gmail.com" },
+                  { icon: Linkedin, href: "https://www.linkedin.com/in/bajrang-barala-51948925a" },
+                  { icon: Github, href: "https://github.com" }
+                ].map((social, index) => (
+                  <motion.a
+                    key={index}
+                    href={social.href}
+                    target={social.href.startsWith('http') ? "_blank" : undefined}
+                    rel={social.href.startsWith('http') ? "noopener noreferrer" : undefined}
+                    className="w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center text-gray-600 hover:text-blue-600 border border-gray-200"
+                    whileHover={{ 
+                      scale: 1.1,
+                      boxShadow: "0 10px 30px rgba(0,0,0,0.1)"
+                    }}
+                    whileTap={{ scale: 0.9 }}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4, delay: 1.2 + index * 0.1 }}
+                  >
+                    <social.icon className="w-5 h-5" />
+                  </motion.a>
+                ))}
+              </motion.div>
+            </motion.div>
 
-            <div className="flex justify-center lg:justify-end">
+            <motion.div 
+              className="flex justify-center lg:justify-end"
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+            >
               <div className="relative">
-                <div className="w-80 h-80 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full opacity-20 animate-pulse"></div>
-                <div className="absolute inset-4 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full opacity-30 animate-pulse delay-1000"></div>
-                <div className="absolute inset-8 bg-gradient-to-br from-blue-600 to-purple-700 rounded-full opacity-40 animate-pulse delay-2000"></div>
+                {/* Main animated orb - matches the design */}
+                <motion.div
+                  className="w-96 h-96 relative"
+                  animate={{
+                    rotate: [0, 360],
+                  }}
+                  transition={{
+                    duration: 20,
+                    repeat: Infinity,
+                    ease: "linear"
+                  }}
+                >
+                  {/* Outer gradient ring */}
+                  <motion.div
+                    className="absolute inset-0 rounded-full bg-gradient-to-br from-blue-400 via-purple-500 to-blue-600 opacity-80"
+                    animate={{
+                      scale: [1, 1.05, 1],
+                    }}
+                    transition={{
+                      duration: 4,
+                      repeat: Infinity,
+                      ease: "easeInOut"
+                    }}
+                  />
+                  
+                  {/* Middle ring */}
+                  <motion.div
+                    className="absolute inset-8 rounded-full bg-gradient-to-br from-purple-400 via-blue-500 to-purple-600 opacity-70"
+                    animate={{
+                      scale: [1.05, 1, 1.05],
+                      rotate: [-180, 180],
+                    }}
+                    transition={{
+                      duration: 6,
+                      repeat: Infinity,
+                      ease: "easeInOut"
+                    }}
+                  />
+                  
+                  {/* Inner core */}
+                  <motion.div
+                    className="absolute inset-16 rounded-full bg-gradient-to-br from-blue-500 via-purple-600 to-blue-700 opacity-90"
+                    animate={{
+                      scale: [1, 1.1, 1],
+                      rotate: [180, -180],
+                    }}
+                    transition={{
+                      duration: 8,
+                      repeat: Infinity,
+                      ease: "easeInOut"
+                    }}
+                  />
+                  
+                  {/* Central highlight */}
+                  <motion.div
+                    className="absolute inset-24 rounded-full bg-gradient-to-br from-white via-blue-100 to-purple-100 opacity-60"
+                    animate={{
+                      scale: [1.1, 1, 1.1],
+                    }}
+                    transition={{
+                      duration: 3,
+                      repeat: Infinity,
+                      ease: "easeInOut"
+                    }}
+                  />
+                </motion.div>
+                
+                {/* Floating particles around the orb */}
+                {[...Array(6)].map((_, i) => (
+                  <motion.div
+                    key={i}
+                    className="absolute w-2 h-2 bg-blue-400 rounded-full"
+                    style={{
+                      top: `${20 + Math.sin(i) * 40}%`,
+                      left: `${20 + Math.cos(i) * 40}%`,
+                    }}
+                    animate={{
+                      y: [0, -20, 0],
+                      opacity: [0.3, 1, 0.3],
+                    }}
+                    transition={{
+                      duration: 3 + i * 0.5,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                      delay: i * 0.5,
+                    }}
+                  />
+                ))}
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
