@@ -5,36 +5,33 @@ import { Award, Calendar, ChevronRight } from 'lucide-react';
 const Experience = () => {
   const experiences = [
     {
-      title: 'Senior Full Stack Developer',
-      company: 'Tech Solutions Inc.',
-      duration: '2022 - Present',
-      description: 'Led development of enterprise web applications using React, Node.js, and AWS. Managed a team of 4 developers and improved application performance by 40%.',
+      title: 'Website Developer',
+      company: 'Techonica India',
+      duration: 'April 2025 - Present (5 months)',
+      location: 'Jaipur, Rajasthan, India',
+      description: 'Currently working as a Website Developer at Techonica India.',
       achievements: [
-        'Architected scalable microservices architecture',
-        'Implemented CI/CD pipelines reducing deployment time by 60%',
-        'Mentored junior developers and conducted code reviews'
+        'No achievements listed in the resume for this role.'
       ]
     },
     {
-      title: 'Full Stack Developer',
-      company: 'Digital Innovations Pvt Ltd',
-      duration: '2020 - 2022',
-      description: 'Developed and maintained multiple client projects using MERN stack. Collaborated with design teams to create responsive web applications.',
+      title: 'React Developer',
+      company: 'Axis Web Art Private Limited',
+      duration: 'June 2024 - March 2025 (10 months)',
+      location: 'Sardarshahar, Rajasthan, India',
+      description: 'Worked as a React Developer at Axis Web Art Private Limited.',
       achievements: [
-        'Built 10+ responsive web applications',
-        'Integrated third-party APIs and payment systems',
-        'Optimized database queries improving response times by 35%'
+        'No specific achievements are listed in the resume for this role.'
       ]
     },
     {
-      title: 'Frontend Developer',
-      company: 'Creative Web Solutions',
-      duration: '2019 - 2020',
-      description: 'Specialized in creating responsive, user-friendly interfaces with modern frontend technologies and frameworks.',
+      title: 'Web Designer',
+      company: 'Axis Web Art Private Limited',
+      duration: 'August 2023 - June 2024 (11 months)',
+      location: 'Sardarshahar, Rajasthan, India',
+      description: 'Worked as a Web Designer at Axis Web Art Private Limited.',
       achievements: [
-        'Delivered pixel-perfect implementations from designs',
-        'Improved website loading speeds by 50%',
-        'Collaborated with UX/UI designers on user experience improvements'
+        'No specific achievements are listed in the resume for this role.'
       ]
     }
   ];
@@ -64,7 +61,7 @@ const Experience = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <motion.div 
+        <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -80,11 +77,11 @@ const Experience = () => {
         <div className="relative">
           {/* Timeline line */}
           <div className="absolute left-1/2 transform -translate-x-px h-full w-0.5 bg-gradient-to-b from-cyan-400 via-blue-500 to-purple-600"></div>
-          
+
           <div className="space-y-12">
             {experiences.map((exp, index) => (
-              <motion.div 
-                key={index} 
+              <motion.div
+                key={index}
                 className={`relative flex items-center ${index % 2 === 0 ? 'justify-start' : 'justify-end'}`}
                 initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -92,20 +89,20 @@ const Experience = () => {
                 viewport={{ once: true }}
               >
                 {/* Timeline dot */}
-                <motion.div 
+                <motion.div
                   className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full border-4 border-gray-900 shadow-lg z-10"
                   initial={{ scale: 0 }}
                   whileInView={{ scale: 1 }}
                   transition={{ duration: 0.5, delay: index * 0.2 + 0.3 }}
                   viewport={{ once: true }}
                 />
-                
+
                 {/* Experience card */}
                 <div className={`w-full md:w-5/12 ${index % 2 === 0 ? 'md:pr-8' : 'md:pl-8'}`}>
-                  <motion.div 
+                  <motion.div
                     className="bg-gradient-to-br from-gray-800/80 to-gray-900/80 backdrop-blur-sm text-white p-6 rounded-lg border border-gray-700/50 hover:border-cyan-500/50 transition-all duration-300"
-                    whileHover={{ 
-                      scale: 1.02, 
+                    whileHover={{
+                      scale: 1.02,
                       boxShadow: "0 20px 40px rgba(6, 182, 212, 0.2)",
                       backgroundColor: "rgba(31, 41, 55, 0.9)"
                     }}
@@ -119,19 +116,19 @@ const Experience = () => {
                         <p className="text-cyan-400 font-medium">{exp.company}</p>
                       </div>
                     </div>
-                    
+
                     <div className="flex items-center gap-2 text-gray-300 mb-4">
                       <Calendar className="w-4 h-4" />
                       <span className="text-sm">{exp.duration}</span>
                     </div>
-                    
+
                     <p className="text-gray-300 mb-4 leading-relaxed text-sm">{exp.description}</p>
-                    
+
                     <div className="space-y-2">
                       <h4 className="font-semibold text-white text-sm mb-3">Key Achievements:</h4>
                       {exp.achievements.map((achievement, idx) => (
-                        <motion.div 
-                          key={idx} 
+                        <motion.div
+                          key={idx}
                           className="flex items-start gap-3"
                           initial={{ opacity: 0, x: -10 }}
                           whileInView={{ opacity: 1, x: 0 }}

@@ -1,13 +1,14 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Code, Database, Server, Globe } from 'lucide-react';
+import { Code, Database, Server, Globe,UploadCloud  } from 'lucide-react';
 
 const Skills = () => {
   const skills = [
     { name: 'React/Next.js', level: 90, icon: <Code className="w-5 h-5" /> },
-    { name: 'Node.js', level: 85, icon: <Server className="w-5 h-5" /> },
-    { name: 'Database Design', level: 80, icon: <Database className="w-5 h-5" /> },
+    { name: 'Node.js', level: 65, icon: <Server className="w-5 h-5" /> },
+    // { name: 'Database Design', level: 80, icon: <Database className="w-5 h-5" /> },
     { name: 'Full Stack Development', level: 88, icon: <Globe className="w-5 h-5" /> },
+    { name: 'App Deployment', level: 75, icon: <UploadCloud className="w-5 h-5" /> },
   ];
 
   return (
@@ -28,7 +29,7 @@ const Skills = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <motion.div 
+        <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -43,8 +44,8 @@ const Skills = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
           {skills.map((skill, index) => (
-            <motion.div 
-              key={index} 
+            <motion.div
+              key={index}
               className="bg-gray-800/50 backdrop-blur-sm p-6 rounded-lg border border-gray-700/50 hover:border-cyan-500/50 transition-all duration-300"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -57,7 +58,7 @@ const Skills = () => {
                 <h3 className="text-lg font-semibold text-white">{skill.name}</h3>
               </div>
               <div className="w-full bg-gray-700/50 rounded-full h-2">
-                <motion.div 
+                <motion.div
                   className="bg-gradient-to-r from-cyan-400 to-blue-500 h-2 rounded-full"
                   initial={{ width: 0 }}
                   whileInView={{ width: `${skill.level}%` }}
@@ -71,7 +72,7 @@ const Skills = () => {
         </div>
 
         {/* Technologies Grid */}
-        <motion.div 
+        <motion.div
           className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -79,14 +80,25 @@ const Skills = () => {
           viewport={{ once: true }}
         >
           {[
-            'JavaScript', 'TypeScript', 'React', 'Next.js', 'Node.js', 'Express.js',
-            'MongoDB', 'PostgreSQL', 'AWS', 'Docker', 'Git', 'Tailwind CSS'
+            'JavaScript',
+            'TypeScript',
+            'React',
+            'React-Native',
+            'Next.js',
+            'Node.js',
+            'Express.js',
+            'MongoDB',
+            'Git',
+            'Tailwind CSS',
+            'HTML',
+            'CSS',
+            // 'Bootstrap'
           ].map((tech, index) => (
-            <motion.div 
-              key={index} 
+            <motion.div
+              key={index}
               className="bg-gray-800/50 backdrop-blur-sm p-4 rounded-lg text-center border border-gray-700/50 hover:border-cyan-500/50 transition-all duration-300"
-              whileHover={{ 
-                scale: 1.05, 
+              whileHover={{
+                scale: 1.05,
                 boxShadow: "0 10px 20px rgba(6, 182, 212, 0.2)",
                 backgroundColor: "rgba(6, 182, 212, 0.1)"
               }}
